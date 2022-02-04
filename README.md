@@ -7,6 +7,7 @@ This is an example of a REST API using auth tokens with Laravel Sanctum
 Change the *.env.example* to *.env* and add your database info
 
 For SQLite, add
+
 ```
 DB_CONNECTION=sqlite
 DB_HOST=127.0.0.1

@@ -17,11 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::resource('products', ProductController::class);
+//localhost:8000/api/products
 
 // Public routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/products', [ProductController::class, 'index']);
+//Route::get('/products', function (){
+//    return \App\Models\Product::all();
+//});
 Route::get('/products/{id}', [ProductController::class, 'show']);
 Route::get('/products/search/{name}', [ProductController::class, 'search']);
 
@@ -29,6 +33,14 @@ Route::get('/products/search/{name}', [ProductController::class, 'search']);
 // Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/products', [ProductController::class, 'store']);
+//    Route::post('/products',function (){
+//        return \App\Models\Product::create([
+//            'name' => 'Product One',
+//            'slug' => 'product-one',
+//            'description' => 'This is product one',
+//            'price' => '99.5'
+//        ]);
+//    });
     Route::put('/products/{id}', [ProductController::class, 'update']);
     Route::delete('/products/{id}', [ProductController::class, 'destroy']);
     Route::post('/logout', [AuthController::class, 'logout']);
